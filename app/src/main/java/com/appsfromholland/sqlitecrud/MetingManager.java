@@ -44,6 +44,7 @@ public class MetingManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
+        //https://www.programcreek.com/java-api-examples/?class=android.database.sqlite.SQLiteDatabase&method=rawQuery
         //Cursor cursor = db.rawQuery("SELECT * FROM meting WHERE unit = ?", new String[]{"WATT"});
         Cursor cursor = db.rawQuery("SELECT * FROM meting;", new String[]{});
 
@@ -63,6 +64,8 @@ public class MetingManager extends SQLiteOpenHelper {
     }
 
     public void delete() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " +  TABLE_NAME);
     }
 
     @Override

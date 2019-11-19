@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 dbContent.setText("");
                 for(Meting m: mm.read()) {
-                    dbContent.append(m.toString());
+                    dbContent.append(", " + m.toString());
                 };
             }
         });
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnD).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mm.delete();
             }
         });
 
