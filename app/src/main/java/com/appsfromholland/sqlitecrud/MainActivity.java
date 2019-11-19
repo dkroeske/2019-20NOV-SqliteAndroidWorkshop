@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnC, btnR, btnU, btnD;
     TextView dbContent;
-    MetingManager mm = new MetingManager();
+    MetingManager mm = new MetingManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dbContent.setText("");
-                ArrayList<Meting> metingen = mm.read();
                 for(Meting m: mm.read()) {
                     dbContent.append(m.toString());
                 };
